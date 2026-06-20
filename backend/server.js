@@ -133,7 +133,7 @@ process.on('SIGTERM', () => {
 });
 
 // ─── Self Ping (Keep Alive on Render) ──────────────────────────────────────────
-const selfPingUrl = process.env.RENDER_EXTERNAL_URL || process.env.PING_URL;
+const selfPingUrl = process.env.RENDER_EXTERNAL_URL || process.env.PING_URL || (process.env.NODE_ENV === 'production' ? 'https://faceattendancepro.onrender.com' : null);
 if (selfPingUrl) {
   const https = require('https');
   const http = require('http');

@@ -1,0 +1,171 @@
+/* PWA Premium Glassmorphic Install Prompt Styling */
+
+.pwa-prompt-container {
+  position: fixed;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: #f4f4f5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+/* Desktop layout: Bottom Right Floating Card */
+@media (min-width: 640px) {
+  .pwa-prompt-container {
+    right: 2rem;
+    bottom: 2rem;
+    max-width: 440px;
+    transform: translateY(0);
+  }
+  
+  .pwa-prompt-container.pwa-prompt-hidden {
+    transform: translateY(100px) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Mobile layout: Bottom Sheet Sliding Up */
+@media (max-width: 639px) {
+  .pwa-prompt-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    transform: translateY(0);
+  }
+
+  .pwa-prompt-container.pwa-prompt-hidden {
+    transform: translateY(150%) scale(0.95);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* App Branding Block */
+.pwa-prompt-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pwa-prompt-icon-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pwa-prompt-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #ffffff;
+}
+
+.pwa-prompt-info {
+  flex-grow: 1;
+}
+
+.pwa-prompt-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.pwa-prompt-desc {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.825rem;
+  line-height: 1.4;
+  color: #a1a1aa;
+}
+
+/* Action Buttons Block */
+.pwa-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 639px) {
+  .pwa-prompt-actions {
+    flex-direction: row-reverse;
+  }
+  .pwa-prompt-actions button {
+    flex: 1;
+  }
+}
+
+/* Standard Button Style */
+.pwa-btn {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.625rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  text-align: center;
+}
+
+/* Later (Dismiss) Button */
+.pwa-btn-later {
+  background: transparent;
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pwa-btn-later:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f4f4f5;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.pwa-btn-later:active {
+  transform: scale(0.97);
+}
+
+/* Install (Action) Button */
+.pwa-btn-install {
+  background: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.pwa-btn-install:hover {
+  background: #4f46e5;
+  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.pwa-btn-install:active {
+  transform: translateY(0) scale(0.97);
+}

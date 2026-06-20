@@ -132,4 +132,22 @@ process.on('SIGTERM', () => {
   });
 });
 
+// ─── Self Ping (Keep Alive on Render) ──────────────────────────────────────────
+const selfPingUrl = process.env.RENDER_EXTERNAL_URL || process.env.PING_URL;
+if (selfPingUrl) {
+  const https = require('https');
+  const http = require('http');
+  const pingInterval = 5 * 60 * 1000; // 5 minutes
+
+  setInterval(() => {
+    const client = selfPingUrl.startsWith('https') ? https : http;
+    client.get(`${selfPingUrl}/api/health`, (res) => {
+      console.log(`📡 Self-ping status: ${res.statusCode} at ${new Date().toISOString()}`);
+    }).on('error', (err) => {
+      console.error('❌ Self-ping error:', err.message);
+    });
+  }, pingInterval);
+  console.log(`📡 Self-ping active for url: ${selfPingUrl}`);
+}
+
 module.exports = app;

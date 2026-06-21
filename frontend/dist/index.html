@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Employee Attendance System with Face Recognition - Track employee attendance securely using biometric verification." />
     <title>AttendEase — Employee Attendance System</title>
+    
+    <!-- PWA Settings & Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/pwa-style.css" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AttendEase" />
+    <link rel="apple-touch-icon" href="/pwa-icon-192.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,5 +24,27 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- PWA Premium Install Prompt UI -->
+    <div id="pwa-install-prompt" class="pwa-prompt-container pwa-prompt-hidden">
+      <div class="pwa-prompt-brand">
+        <div class="pwa-prompt-icon-wrapper">
+          <svg class="pwa-prompt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 11l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="pwa-prompt-info">
+          <h3 class="pwa-prompt-title">Install AttendEase</h3>
+          <p class="pwa-prompt-desc">Track attendance securely using biometric face recognition. Install for offline access and a faster experience.</p>
+        </div>
+      </div>
+      <div class="pwa-prompt-actions">
+        <button id="pwa-btn-install" class="pwa-btn pwa-btn-install">Install</button>
+        <button id="pwa-btn-later" class="pwa-btn pwa-btn-later">Later</button>
+      </div>
+    </div>
+
+    <script src="/pwa-script.js" defer></script>
   </body>
 </html>

@@ -13,7 +13,26 @@ const app = express();
 connectDB();
 
 // ─── Security Middleware ───────────────────────────────────────────────────────
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "blob:"],
+        connectSrc: ["'self'", "blob:", "data:"],
+        workerSrc: ["'self'"],
+        manifestSrc: ["'self'"],
+        mediaSrc: ["'self'", "blob:"],
+        frameSrc: ["'none'"],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false,
+  })
+);
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
@@ -25,7 +44,7 @@ app.use(
 
 // Rate limiting — 100 requests per 15 minutes per IP
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
+  windowMs: 5 * 60 * 1000,
   max: 100,
   message: { success: false, message: 'Too many requests, please try again later.' },
 });

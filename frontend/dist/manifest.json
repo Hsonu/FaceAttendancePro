@@ -2,28 +2,29 @@
   "short_name": "AttendEase",
   "name": "AttendEase — Employee Attendance System",
   "description": "Employee Attendance System with Face Recognition - Track employee attendance securely using biometric verification.",
+  "id": "/",
   "icons": [
     {
       "src": "/favicon.svg",
       "type": "image/svg+xml",
-      "sizes": "any",
-      "purpose": "any"
-    },
-    {
-      "src": "/pwa-icon-192.jpg",
-      "type": "image/jpeg",
-      "sizes": "192x192",
-      "purpose": "any"
-    },
-    {
-      "src": "/pwa-icon-512.jpg",
-      "type": "image/jpeg",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "/pwa-icon-512.jpg",
-      "type": "image/jpeg",
+      "src": "/pwa-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-icon-512.png",
+      "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
     }
@@ -33,5 +34,6 @@
   "background_color": "#09090b",
   "theme_color": "#6366f1",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "prefer_related_applications": false
 }

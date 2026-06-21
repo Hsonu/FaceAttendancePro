@@ -10,8 +10,8 @@ const CACHE_NAME = 'attendease-cache-v2';
 const PRECACHE_ASSETS = [
   '/manifest.json',
   '/favicon.svg',
-  '/pwa-icon-192.jpg',
-  '/pwa-icon-512.jpg',
+  '/pwa-icon-192.png',
+  '/pwa-icon-512.png',
   '/pwa-style.css',
   '/pwa-script.js'
 ];

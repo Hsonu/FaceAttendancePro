@@ -29,22 +29,6 @@
       "purpose": "maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/pwa-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "AttendEase Home Screen"
-    },
-    {
-      "src": "/pwa-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "AttendEase Dashboard"
-    }
-  ],
   "start_url": "/",
   "scope": "/",
   "background_color": "#09090b",

@@ -3,15 +3,17 @@
  * Implements offline support with dynamic caching for Vite-hashed assets.
  */
 
-const CACHE_NAME = 'attendease-cache-v2';
+const CACHE_NAME = 'attendease-cache-v3';
 
-// Only pre-cache truly static assets that don't change names between builds.
-// Vite-hashed JS/CSS bundles are cached dynamically on first fetch.
+// Pre-cache the app shell including start_url ('/') which Chrome requires
+// for PWA installability. Vite-hashed JS/CSS are cached dynamically.
 const PRECACHE_ASSETS = [
+  '/',
   '/manifest.json',
   '/favicon.svg',
   '/pwa-icon-192.png',
   '/pwa-icon-512.png',
+  '/pwa-icon-maskable-512.png',
   '/pwa-style.css',
   '/pwa-script.js'
 ];
